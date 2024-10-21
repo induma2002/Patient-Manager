@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mariadb://localhost:3306/EcomShop
+    url: jdbc:mariadb://localhost:3306/Hospital
     username: root
     password: 2004
 #    driver-class-name: org.mariadb.jdbc.Driver
