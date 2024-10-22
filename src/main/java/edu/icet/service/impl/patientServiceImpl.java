@@ -33,4 +33,9 @@ public class patientServiceImpl implements PatientService {
         patientRepository.save(mapper.map(patient, PatientEntity.class));
 
     }
+
+    @Override
+    public void deleteById(Integer id) {
+        patientRepository.deleteById(id);
+    }
 }
