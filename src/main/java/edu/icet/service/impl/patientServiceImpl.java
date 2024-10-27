@@ -17,6 +17,7 @@ public class patientServiceImpl implements PatientService {
 
     final PatientRepository patientRepository;
     final ModelMapper mapper;
+    private final ModelMapper modelMapper;
 
 
     List<Patient> patientList;
@@ -37,5 +38,10 @@ public class patientServiceImpl implements PatientService {
     @Override
     public void deleteById(Integer id) {
         patientRepository.deleteById(id);
+    }
+
+    @Override
+    public Patient getPatientByid(Integer id) {
+        return modelMapper.map(patientRepository.findById(id), Patient.class);
     }
 }

@@ -9,4 +9,6 @@ public interface PatientService {
     void addPatient(Patient patient);
 
     void deleteById(Integer id);
+
+    Patient getPatientByid(Integer id);
 }
