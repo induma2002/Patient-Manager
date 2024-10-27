@@ -11,4 +11,10 @@ public interface PatientService {
     void deleteById(Integer id);
 
     Patient getPatientByid(Integer id);
+
+    List<Patient> findPatientByName(String name);
+
+    List<Patient> findPatientByContact(String contact);
+
+    List<Patient> findPatientByNic(String nic);
 }

@@ -16,22 +16,19 @@ import java.util.List;
 public class patientServiceImpl implements PatientService {
 
     final PatientRepository patientRepository;
-    final ModelMapper mapper;
-    private final ModelMapper modelMapper;
+    final ModelMapper modelMapper;
 
-
-    List<Patient> patientList;
 
     @Override
-    public List <Patient> getPatient() {
-        patientList = new ArrayList<>();
-        patientRepository.findAll().forEach(patientEntity -> patientList.add(mapper.map(patientEntity, Patient.class)));
+    public List<Patient> getPatient() {
+        List<Patient> patientList = new ArrayList<>();
+        patientRepository.findAll().forEach(patientEntity -> patientList.add(modelMapper.map(patientEntity, Patient.class)));
         return patientList;
     }
 
     @Override
     public void addPatient(Patient patient) {
-        patientRepository.save(mapper.map(patient, PatientEntity.class));
+        patientRepository.save(modelMapper.map(patient, PatientEntity.class));
 
     }
 
@@ -43,5 +40,33 @@ public class patientServiceImpl implements PatientService {
     @Override
     public Patient getPatientByid(Integer id) {
         return modelMapper.map(patientRepository.findById(id), Patient.class);
+    }
+
+    @Override
+    public List<Patient> findPatientByName(String name) {
+
+        List<Patient> patientList = new ArrayList<>();
+        patientRepository.findByName(name).forEach(patientEntity -> {
+            patientList.add(modelMapper.map(patientEntity, Patient.class));
+        });
+        return patientList;
+    }
+
+    @Override
+    public List<Patient> findPatientByContact(String contact) {
+        List<Patient> patientList = new ArrayList<>();
+        patientRepository.findByContact(contact).forEach(patientEntity -> {
+            patientList.add(modelMapper.map(patientEntity, Patient.class));
+        });
+        return patientList;
+    }
+
+    @Override
+    public List<Patient> findPatientByNic(String nic) {
+        List<Patient> patientList = new ArrayList<>();
+        patientRepository.findByNic(nic).forEach(patientEntity -> {
+            patientList.add(modelMapper.map(patientEntity, Patient.class));
+        });
+        return patientList;
     }
 }

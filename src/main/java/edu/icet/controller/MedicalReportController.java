@@ -33,4 +33,5 @@ public class MedicalReportController {
     public void deletePatientById(@PathVariable Integer id) {
         medicalReportService.deleteMedicalReportById(id);
     }
+
 }
