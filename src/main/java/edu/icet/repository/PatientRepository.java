@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface PatientRepository extends JpaRepository<PatientEntity, Integer> {
-    List<Patient> findByName(String name);
-    List<Patient> findByContact(String name);
-    List<Patient> findByNic(String name);
+    List<PatientEntity> findByName(String name);
+    List<PatientEntity> findByContact(String name);
+    List<PatientEntity> findByNic(String name);
 }
