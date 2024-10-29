@@ -42,4 +42,22 @@ public class MedicalReporrtServiceImpl implements MedicalReportService {
     public void deleteMedicalReportById(Integer id) {
         medicalReportRepository.deleteById(id);
     }
+
+    @Override
+    public List<MedicalReport> getAllMedicalReport() {
+        List<MedicalReport> medicalReports = new ArrayList<>();
+        medicalReportRepository.findAll().forEach(report ->{
+            medicalReports.add(modelMapper.map(report, MedicalReport.class));
+        });
+        return medicalReports;
+    }
+
+    @Override
+    public List<MedicalReport> finfByFkPatientId(Integer fkPatientId) {
+        List<MedicalReport> medicalReports = new ArrayList<>();
+        medicalReportRepository.findByFkPatientId(fkPatientId).forEach(report ->{
+            medicalReports.add(modelMapper.map(report, MedicalReport.class));
+        });
+        return medicalReports;
+    }
 }

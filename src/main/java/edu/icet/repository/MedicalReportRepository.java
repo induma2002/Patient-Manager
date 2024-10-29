@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface MedicalReportRepository extends JpaRepository<MedicalReportEntity,Integer> {
     List<MedicalReportEntity> findByAdminId(Integer adminId);
+    List<MedicalReportEntity> findByFkPatientId(Integer fkPatientId);
 }

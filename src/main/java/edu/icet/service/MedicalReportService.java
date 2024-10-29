@@ -12,4 +12,8 @@ public interface MedicalReportService {
     List<MedicalReport> findByAdminId(Integer id);
 
     void deleteMedicalReportById(Integer id);
+
+    List<MedicalReport> getAllMedicalReport();
+
+    List<MedicalReport> finfByFkPatientId(Integer fkPatientId);
 }

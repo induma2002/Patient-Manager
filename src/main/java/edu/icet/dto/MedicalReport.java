@@ -14,7 +14,7 @@ public class MedicalReport {
     private Integer id;
     private String reportCatogary;
     private String pdfSrc;
-    private String fkPatientId;
+    private Integer fkPatientId;
     private Integer adminId;
     private String labNo;
     private LocalDateTime dateAndTime;
