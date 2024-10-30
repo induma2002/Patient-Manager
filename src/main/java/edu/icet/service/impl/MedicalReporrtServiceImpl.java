@@ -55,7 +55,7 @@ public class MedicalReporrtServiceImpl implements MedicalReportService {
     @Override
     public List<MedicalReport> finfByFkPatientId(Integer fkPatientId) {
         List<MedicalReport> medicalReports = new ArrayList<>();
-        medicalReportRepository.findByFkPatientId(fkPatientId).forEach(report ->{
+        medicalReportRepository.findByPatientId(fkPatientId).forEach(report ->{
             medicalReports.add(modelMapper.map(report, MedicalReport.class));
         });
         return medicalReports;
