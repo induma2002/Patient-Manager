@@ -1,7 +1,9 @@
 package edu.icet.dto;
 
-import java.time.LocalDateTime;
+import lombok.Data;
 
+import java.time.LocalDateTime;
+@Data
 public class Appoinment {
     private Integer id;
     private String type;
